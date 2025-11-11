@@ -9,22 +9,26 @@
    ***或者***
    
    ```
-   git stash push --include-untracked
+   git reset --hard HEAD
    ```
 
-<img src="./Screenshot from 2025-10-31 22-36-05.png" title="" alt="示例" width="652">
-![示例](./Screenshot from 2025-10-31 22-36-55.png)
+![eg](./images/Screenshot%20from%202025-11-11%2013-19-01.png)
+![eg](./images/Screenshot from 2025-11-11 13-22-47.png)
 
 ---
 
 2. ：
 
 ```
-不修改历史的方式：git reset --soft HEAD~1
-修改历史的方式：git reset --soft HEAD~1
+不修改历史的方式：git reset HEAD
+  git reset <commit-hash>
+修改历史的方式：git rebase -i HEAD~1
+  git reset --hard HEAD
 ```
 
-![eg](./Screenshot from 2025-10-31 22-37-15.png)
+![eg](./images/Screenshot from 2025-11-11 13-14-52.png)
+![eg](./images/Screenshot from 2025-11-11 00-42-33.png)
+![eg](./images/Screenshot from 2025-11-11 13-07-39.png)
 
 ---
 
@@ -32,17 +36,16 @@
    
    ```
    git checkout main
-   git cherry-pick <commit-hash1> <commit-hash2>
-   git cherry-pick <start-commit>..<end-commit>
+   git cherry-pick <commit-hash>
    ```
    
    ***或者***
    
    ```
-      git checkout feature-branch
-   git format-patch main --stdout > feature.patch
+   git checkout feature-branch
    git checkout main
-   git apply feature.patch
+   git rebase feature-branch
    ```
    
-   ![eg](./Screenshot from 2025-10-31 22-37-30.png)
+   ![eg](./images/Screenshot from 2025-11-11 13-01-51.png)
+   ![eg](./images/Screenshot from 2025-11-11 00-32-15.png)
